@@ -1,0 +1,19 @@
+apiVersion: app/v1
+kind: ReplicaSet
+metadata:
+  name: ticktawebcapp-replicaset
+  namespace: dev
+  labels:
+    app: ticktacapp
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: ticktacapp
+  template:
+    metadata:
+      labels:
+        app: ticktacapp
+    spec:
+      containers:ticktawebcapp-container
+      - name: ticktawebcapp-container
