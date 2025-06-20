@@ -15,5 +15,8 @@ spec:
       labels:
         app: ticktacapp
     spec:
-      containers:ticktawebcapp-container
+      containers:
       - name: ticktawebcapp-container
+        image: dinvar/dinvardevopsrepo:v1.3
+        ports:
+        - containerPort: 80
