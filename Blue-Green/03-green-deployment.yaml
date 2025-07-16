@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tic-tac-green-deployment
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: tic-tac-app
+      version: green
+  template:
+    metadata:
+      labels:
+        app: tic-tac-app
+        version: green
+    spec:
+      containers:
+        - name: tic-tac-container
+          image: dinvar/test-repo:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
