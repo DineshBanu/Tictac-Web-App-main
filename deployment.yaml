@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ticktawebcapp-deployment
+  namespace: dev
+  labels:
+    app: ticktacapp
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: ticktacapp
+  strategy: 
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: ticktacapp
+    spec:
+      containers:
+      - name: ticktawebcapp-container
+        image: dinvar/dinvardevopsrepo:v1.3
+        ports:
+        - containerPort: 80
