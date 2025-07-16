@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: tic-tac-container
-          image:dinvar/test-repo:latest
+          image: dinvar/test-repo:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80
